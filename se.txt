@@ -1,0 +1,53 @@
+hello everyone, my name is phan thanh tu , i'm 22 years old,i was born in nghe an provin, i'm a senior at university of 
+transportation and comunication,my major is electronics and telecommunications
+
+in my school,i have some projects like "smart door opening and closing control system, fire alarm system by phone". 
+In these projects i use rf24 communication technology and esp8266 hardware to implementation, 
+I also had some problems with these projects such as:
+having to learn new communication knowledge.....
+learning new hardware technologies,finally we finished the project.
+
+One of my strong points is Being responsible, in my school,when I work in a group I always try to complete my tasks well 
+and help other members complete their tasks.My weakness is that I am not confident in public when speaking English,
+I signed up for more courses to improve this.
+
+My short term goal is within the next 2 months, after completing my course at FA, to become a professional embedded programmer.and
+my long term goal is within the next 4 to 5 years to become a leader in fptsw.
+
+
+
+
+
+intentionally or unintentionally : cố ý hay vô ý
+ mentioned : đề cập
+similar : tương tự
+depicts: miêu tả
+depending on: tùy thuộc vào
+appropriate : phù hợp
+consider : xem xét
+behavior of: hành vi
+confusing with: khó hiểu với
+discussed: thảo luận
+ substituted ; thay thế
+ identifier ; định danh
+abbreviation ; viết tắt
+habits: thói quen
+rourtine : lịch trình
+sedentary lifestyle ; lối sống ít vận động
+equivalent ; tương đương
+discuss; bàn luận.
+suitable ; thích hợp
+indicate ;  biểu thị
+existence; sự tồn tại
+ordinary: bình thường
+associated : có liên quan
+executable instructions; lệnh thực thi
+disappointed; thất vọng
+discipline; kỉ luật
+reliability and stability.: độ tin cậy và ổn định
+Sophisticated: tinh vi
+performs ; thực hiện
+flexible; linh hoạt
+ideal; lý tưởng
+ individually ; riêng lẻ
+confident ; tự tin
