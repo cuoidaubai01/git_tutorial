@@ -1,0 +1,42 @@
+bus dma lấy thẳng dữ liệu từ gpio nhưng đi đường bus độc lập bên ngoài xong đưa vào cpu đọc xong lưu vào ram
+s bus cũng lấy dữ liệu từ gpio nhưng phải thông qua matrix bus,đưa lên cpu đọc,rồi mới đến lưu tại ram.
+
+ở arm,khi xảy ra ngắt systick phần cứng arm hỗ trợ 8 thanh ghi r0-r3 và pc,r12,lr,spsr.
+r12 để lưu địa chỉ trung gian,để nhảy đến các lệnh dễ dàng hơn,
+hạn chế của thumb,khi nhảy sẽ k nhảy dc xa.
+
+BL
+
+VECTOR table : bảng điều hướng ,dc cấu thành từ các ô nhớ 4byte,
+ví dụ nếu không có địa chỉ của hàm ngắt trong bảng vector,
+
+khi có 2 hàm tên giống nhau,tùy  thuộc vào pubweak,sẽ bị ghi đè
+
+các vector ngắt trong core không có id để tính địa chỉ.với khi uart ngắt 
+
+
+hamd baudrate tham số truyền vào clock trc baud sau,
+trạng thái nghỉ tx luôn 1,invertion sẽ đảo ngc trạng thái của uart,tx nghỉ luôn bằng 0 start bằng 1
+
+DMA?
+
+UART-D Có 2 buffre cho việc truyền và nhận,địa chỉ của nó chỉ là địa chỉ ảo.
+
+khi viết hàm nên để chức năng của hàm riêng biệt,không phụ thuộc vào hàm khác
+
+FTFA->FSTAT
+
+khi stacking thanh ghi nào vào trước,ra trc
+
+vì sao khi ngắt trên thực tế chỉ stack 8 thanh ghi
+
+tại sao bộ nhớ địa chỉ,chỉ cho ghi được 24 bits mà có thể lưu được địa chỉ 32bit
+
+vì sao phải cần đến 2 bảng vector ngắt trong bài mock.
+
+sự khác nhau giữa msp và psp.
+
+hạn chế của bootloader
+
+khi nào sử dụng pooling.
+

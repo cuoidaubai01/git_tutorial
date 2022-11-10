@@ -1,0 +1,8 @@
+Tại sao không lưu biến trên flash?
+- vì việc đọc ghi trên flash khó khăn hơn,vì flash đọc ghi theo sector.
+- lúc bắt đầu ram sẽ dc reset hết về 0,tùy thuộc vào compiler mà biến khởi tạo bằng 0 sẽ dc lưu trên bss or lưu trên data
+chương trình dc nạp như thế nào?
+- khi nạp chương trình từ laptop,chương trình sẽ dc load lên flash(ở đây đã tồn tại các biến toàn cục static nhưng k sử dụng dc)
+khi chạy chương trình các biến này sẽ dc cấp phát vùng nhớ trên ram và thực hiê nj chương trình tại đây.
+vì sao start up phải viết bằng ngôn ngữ asm,tại sao c k truy xuất dc vào res core
+- vì c khi làm việc phải có stack
