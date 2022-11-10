@@ -1,0 +1,70 @@
+Access lever
+có 2 mode:
+- handle và thread (mode);
+- handle được sử dụng trong các exeption , thread khi chương trình chạy bình thường,măc định là thread mode.
+có 2 kiểu access:
+được quy định bởi bit control
+- privilege(pre vờ lịch): có thể access đến các thanh ghi đặc biệt,vdu như thanh ghi non_memorymap
+- unprivilege(user)
+- privilege luôn đi với handle mode.
+- unprivilege(user) luôn đi với thread mode.
+- khi có exeption xảy ra control = 0 -> 1,thread mode->handle mode,sau khi thực hiện xong exeption, chương trình trở về thread
+mode.
+
+T_bits.
+- T bit dc dungf để quy định loại tập lệnh mà core sử dụng,nếu T bit = 0, ARM, ngc lại thì là kiểu thumb.
+- T bit sẽ dc chèn vào vị trí đầu tiên của pc,do vậy cấc địa chỉ trong vector table luôn là lẻ.
+- ở core M chỉ áp dụng thumb,nếu t bit = 0, sẽ gây ra lỗi hard fault.
+
+Memorrymap
+- load 1 lệnh: khi cpu muốn lấy dữ liệu từ GPIO,ADC,...cpu sẽ đưa dịa chỉ của nơi cần lấy dữ liệu,đến bus địa chỉ để tìm nơi khối
+đấy đang dc đặt,sau đó dữ liệu sẽ dc chuyển từ thanh ghi của khối tới thanh ghi của core,sau khi cpu thực hiện xong nhiệm vụ
+dữ liệu sẽ dc chuyển từ thanh ghi core về data.
+
+Bus_potocol:
+AMBA:CÓ 2 giao thức là AHB và APB.
+- AHB; viết tắt của AMBA bus hiệu suất cao.
+- APB; viết tắt của AMBA ngoại vi.
+bus_matrix: D-bus = data-bus; I-bus = intruction-bus; S-bus = system-bus.
+
+Bitbanding:
+- là kĩ thuật được áp dụng(tùy thuộc vào từng core có tích hợp hay không) để thay đổi từng bit trong ô nhớ,vì data trong bộ nhớ dc lưu
+trữ với dải byte.
+- kĩ thuật này chỉ dc áp dụng cho ngoại vi và sram(các hoạt động này sẽ không bị gián đoạn bởi các exception).
+
+stack:
+có 4 loại stack;
+- full ascending(tăng lên)
+- full descending(giảm xuống) arm loại này
+- empty ascending(tăng lên nhưng sp trỏ vào ô trống)
+- empty decending(ngc lại ac..)
+
+có 3 stack pointer;
+- sp(r13)
+khi stack hoạt động với msp hoặc psp tùy thuộc vào mode hoạt động,thì sp(r13) sẽ copy giá trị của msp or psp vào r13 để thực thi
+- msp ; main stack pointer(theo mặc định, MSP là con trỏ ngăn xếp chính sẽ được chọn làm con trỏ ngăn xếp hiện tại.)
+- psp ; process stack pointer
+chế độ luồng(thead mode) có thể thay đổi con trỏ ngăn xếp hiện tại thành PSP,
+thay đổi chế độ bằng bit SPEL trên control resister
+
+Exeption:
+- Ngoại lệ có thể là bạn biết bất cứ điều gì làm xáo trộn hoạt động bình thường của chương trình bằng cách thay đổi 
+chế độ hoạt động của bộ xử lý.
+- Vì vậy, trong bộ vi xử lý ARM Cortex M, có 2 loại ngoại lệ. 2 loại ngoại lệ chính.
++ exeption bên trong core.
++ interupt tạo bởi các peripheral.
+- hầu hết các exeption hệ thống bị tắt mặc định
+- khi 2 ngắt có cùng mức ưu tiên,tùy vào loại core sẽ xét mức ưu tiên phụ,nếu ưu tiên phụ vẫn bằng nhau thì xét đến id trên bẳng 
+vector ngắt,cái nào có id nhỏ hơn thì mặc định có ưu tiên cao hơn và dc thực hiện.
+- khi có tín hiệu ngắt xảy ra bit pending của ngắt này sẽ dc bật theo id của ngắt,khi ngắt dc thực hiện bit này sẽ tự xóa bởi
+phần cứng.
+- khi từ ngắt trở về dựa vào EXC_RETURN để xác định mode hoạt động,stack nào sẽ dc hoạt động
+
+low power mode;
+- với cpu(giảm xung clock,f càng cao power càn tốn)
+- với ngoại vi.
+cách đọc referen manual
+- đọc giới thiệu
+- đọc chức năng(đọc chức năng functional đầu tiên xong quay lại đọc intro của chức năng).
+
+Interrupt;
